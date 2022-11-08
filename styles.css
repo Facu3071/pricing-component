@@ -1,0 +1,227 @@
+/* ---------- FONTS --------- */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+/* ---------- RESET --------- */
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+/* ---------- VARIABLES --------- */
+:root {
+  --linear-gradient: hsl(236, 72%, 79%) to hsl(237, 63%, 64%);
+  --ff-body: "Montserrat", sans-serif;
+  --very-light-grayish-blue: hsl(240, 78%, 98%);
+  --light-grayish-blue: hsl(236, 33%, 92%);
+  --grayish-blue: hsl(233, 13%, 49%);
+  --dark-grayish-blue: hsl(232, 13%, 33%);
+  --white: rgb(255, 255, 255);
+  --blue-opacity: hsl(236, 84%, 76%);
+}
+/* ---------- STYLES --------- */
+body {
+  font-family: var(--ff-body);
+  font-size: 15px;
+  text-align: center;
+  background: var(--very-light-grayish-blue);
+  color: var(--grayish-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body::before {
+  content: "";
+  background-image: url("./images/bg-top.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+ul > li {
+  list-style-type: none;
+}
+
+h1 {
+  color: var(--dark-grayish-blue);
+}
+.main {
+  margin: 3rem auto;
+  min-height: 100vh;
+  width: 1200px;
+  max-width: 100%;
+}
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: var(--light-grayish-blue);
+  margin: 2.5rem auto;
+}
+.toggle label {
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  border-radius: 3rem;
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  height: 1.9rem;
+  width: 3.5rem;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+.toggle label:hover {
+  opacity: 0.5;
+}
+.toggle label .ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0.2rem;
+  left: 0.25rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  transition: transform 0.4s ease;
+}
+.toggle input {
+  position: absolute;
+  left: -9999rem;
+}
+.container-pricing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+.pricing {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: white;
+  border-radius: 0.7rem;
+  width: 100%;
+  max-width: 22rem;
+}
+.pricing h4 {
+  font-size: 1.2rem;
+}
+.price {
+  font-size: 4rem;
+  color: var(--dark-grayish-blue);
+}
+.p-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.p-description li {
+  border-top: thin solid var(--light-grayish-blue);
+  padding: 1.3rem 0;
+}
+.p-description li:last-child {
+  border-bottom: thin solid var(--light-grayish-blue);
+}
+.btn-pricing {
+  padding: 0.9rem 0;
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  border: transparent;
+  border-radius: 0.3rem;
+  color: var(--very-light-grayish-blue);
+  border: thin solid var(--blue-opacity);
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.btn-pricing:hover {
+  background-color: transparent;
+  background-image: var(--white);
+  color: var(--blue-opacity);
+  border: thin solid var(--blue-opacity);
+}
+.p2 {
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  color: white;
+}
+.p2 .price {
+  color: white;
+}
+
+.p2 .btn-pricing {
+  background-color: white;
+  background-image: var(--white);
+  color: var(--blue-opacity);
+}
+.p2 .btn-pricing:hover {
+  background-image: linear-gradient(
+    to right,
+    hsl(236, 72%, 79%),
+    hsl(237, 63%, 64%)
+  );
+  color: white;
+  border: thin solid white;
+}
+.toggle input:checked + label .ball {
+  transform: translateX(1.5rem);
+}
+.monthly {
+  display: none;
+}
+.container-pricing.show .monthly {
+  display: block;
+}
+.container-pricing.show .annually {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  body::after {
+    content: "";
+    background-image: url("./images/bg-bottom.svg");
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+  }
+  .container-pricing {
+    flex-direction: row;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+  .p2 {
+    transform: scale(1.1);
+  }
+  .toggle {
+    color: var(--grayish-blue);
+  }
+}
